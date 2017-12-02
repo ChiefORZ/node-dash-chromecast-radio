@@ -6,7 +6,7 @@ var defaults = {
   ttl: 10000,
   service_name: '_googlecast._tcp.local',
   service_type: 'PTR',
-  mdns: {}
+  mdns: {},
 };
 
 var resultsCache = [];
@@ -28,9 +28,7 @@ function scan(opts, cb) {
   var onResponse = function(response) {
     var answer = response.answers[0];
 
-    if (answer &&
-        (answer.name !== opts.service_name ||
-         answer.type !== opts.service_type)) {
+    if (answer && (answer.name !== opts.service_name || answer.type !== opts.service_type)) {
       return;
     }
 
@@ -54,10 +52,12 @@ function scan(opts, cb) {
   m.on('response', onResponse);
 
   m.query({
-    questions:[{
-      name: opts.service_name,
-      type: opts.service_type
-    }]
+    questions: [
+      {
+        name: opts.service_name,
+        type: opts.service_type,
+      },
+    ],
   });
 
   var close = function() {
@@ -65,11 +65,8 @@ function scan(opts, cb) {
     clearTimeout(timer);
     m.destroy();
   };
-};
+}
 
 scan(function(err, service) {
-  console.log('chromecast %s running on: %s',
-    service.name,
-    service.data);
-  console.log(service);
+  console.log('chromecast %s running on: %s', service.name, service.data);
 });

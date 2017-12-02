@@ -1,0 +1,14 @@
+{
+  "name": "node-dash-chromecast-radio",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "array-find": "^1.0.0",
+    "castv2-client": "^1.2.0",
+    "dotenv": "^4.0.0",
+    "multicast-dns": "^6.2.1",
+    "node-dash-button": "^0.6.1",
+    "xtend": "^4.0.1"
+  }
+}

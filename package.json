@@ -10,5 +10,10 @@
     "multicast-dns": "^6.2.1",
     "node-dash-button": "^0.6.1",
     "xtend": "^4.0.1"
+  },
+  "scripts": {
+    "findDashButton": "cd node_modules/node-dash-button && node bin/findbutton",
+    "findChromecast": "node findChromecast",
+    "start": "node app"
   }
 }
